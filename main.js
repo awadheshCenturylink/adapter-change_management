@@ -116,7 +116,7 @@ healthcheck(callback) {
       */
       this.emitOffline();
       log.error(`ServiceNow getRecord Error:${this.id} : ${error}`);
-      callback(null, error);
+      return callback(null, error);
    } else {
      /**
       * Write this block.
@@ -130,7 +130,7 @@ healthcheck(callback) {
       */
       this.emitOnline();
       log.debug(`ServiceNow: getRecord successfully executed and return response : ${result}`);
-      callback(result, null);
+      return callback(result, null);
    }
  });
 }
